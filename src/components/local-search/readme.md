@@ -7,9 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type     | Default     |
-| -------- | --------- | ----------- | -------- | ----------- |
-| `mapurl` | `mapurl`  | Map URL     | `string` | `undefined` |
+| Property    | Attribute    | Description     | Type     | Default     |
+| ----------- | ------------ | --------------- | -------- | ----------- |
+| `linkText`  | `link-text`  | Map link text   | `string` | `undefined` |
+| `mapUrl`    | `map-url`    | Map URL         | `string` | `undefined` |
+| `titleText` | `title-text` | Main title text | `string` | `undefined` |
 
 
 ----------------------------------------------

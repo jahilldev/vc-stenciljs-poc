@@ -11,8 +11,17 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface LocalSearch {
+    /**
+    * Map link text
+    */
     'linkText': string;
+    /**
+    * Map URL
+    */
     'mapUrl': string;
+    /**
+    * Main title text
+    */
     'titleText': string;
   }
 }
@@ -32,8 +41,17 @@ declare global {
 
 declare namespace LocalJSX {
   interface LocalSearch {
+    /**
+    * Map link text
+    */
     'linkText'?: string;
+    /**
+    * Map URL
+    */
     'mapUrl'?: string;
+    /**
+    * Main title text
+    */
     'titleText'?: string;
   }
 

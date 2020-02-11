@@ -7,10 +7,24 @@ import { Component, Prop, h, getAssetPath, State } from '@stencil/core';
   shadow: true
 })
 export class LocalSearch {
+  /**
+   * Main title text
+   */
   @Prop() titleText: string;
+
+  /**
+   * Map link text
+   */
   @Prop() linkText: string;
+
+  /**
+   * Map URL
+   */
   @Prop() mapUrl: string;
 
+  /**
+   * Internal input state
+   */
   @State() searchValue: string;
 
   private onKeyUp = ({ target }) => {
