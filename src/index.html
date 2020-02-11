@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Local Search Component</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Muli:200,300,400,500&display=swap" rel="stylesheet">
+
+  <style>
+    .wrapper {
+      background: #31b2d2;
+      padding: 20px 0;
+    }
+
+    .container {
+      max-width: 1024px;
+      margin: 0 auto;
+    }
+  </style>
+
+  <script type="module" src="/build/local-map.esm.js"></script>
+  <script nomodule src="/build/local-map.js"></script>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="container">
+      <local-search
+        title-text="Find the Latest Deals Near You"
+        link-text="View our interactive map"
+        map-url="https://www.vouchercloud.com/local-vouchers"
+      ></local-search>
+    </div>
+  </div>
+
+</body>
+</html>
