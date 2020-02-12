@@ -24,6 +24,7 @@ export namespace Components {
     */
     'titleText': string;
   }
+  interface RedemptionButton {}
 }
 
 declare global {
@@ -34,8 +35,15 @@ declare global {
     prototype: HTMLLocalSearchElement;
     new (): HTMLLocalSearchElement;
   };
+
+  interface HTMLRedemptionButtonElement extends Components.RedemptionButton, HTMLStencilElement {}
+  var HTMLRedemptionButtonElement: {
+    prototype: HTMLRedemptionButtonElement;
+    new (): HTMLRedemptionButtonElement;
+  };
   interface HTMLElementTagNameMap {
     'local-search': HTMLLocalSearchElement;
+    'redemption-button': HTMLRedemptionButtonElement;
   }
 }
 
@@ -54,9 +62,11 @@ declare namespace LocalJSX {
     */
     'titleText'?: string;
   }
+  interface RedemptionButton {}
 
   interface IntrinsicElements {
     'local-search': LocalSearch;
+    'redemption-button': RedemptionButton;
   }
 }
 
@@ -67,6 +77,7 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'local-search': LocalJSX.LocalSearch & JSXBase.HTMLAttributes<HTMLLocalSearchElement>;
+      'redemption-button': LocalJSX.RedemptionButton & JSXBase.HTMLAttributes<HTMLRedemptionButtonElement>;
     }
   }
 }

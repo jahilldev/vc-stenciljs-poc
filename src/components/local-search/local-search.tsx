@@ -1,5 +1,11 @@
 import { Component, Prop, h, getAssetPath, State } from '@stencil/core';
 
+/* -----------------------------------
+ *
+ * Search
+ *
+ * -------------------------------- */
+
 @Component({
    tag: 'local-search',
    styleUrl: 'local-search.scss',
@@ -27,14 +33,16 @@ export class LocalSearch {
     */
    @State() searchValue: string;
 
-   private onKeyUp = ({ target }) => {
-      this.searchValue = target.value;
+   private onKeyUp = (ev: Event) => {
+      const { value } = ev.target as HTMLInputElement;
+
+      this.searchValue = value;
    };
 
-   private onSubmit = ev => {
+   private onSubmit = (ev: Event) => {
       ev.preventDefault();
 
-      console.log('submit', this.searchValue);
+      console.log('submit', ev, this.searchValue);
    };
 
    render() {
