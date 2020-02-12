@@ -38,7 +38,7 @@
             background: #fff;
             padding: 10px 20px;
             text-align: center;
-            max-width: 100px;
+            max-width: 140px;
             margin: 0 auto;
             cursor: pointer;
             color: #50c3d8;
@@ -61,10 +61,21 @@
       <div class="container margin">
          <redemption-button
             class="button"
+            offer-id="12345"
             redirect-url="https://vouchercloud.com/"
          >
-            Click Me
+            Redeem Here
          </redemption-button>
+      </div>
+      <div class="container">
+         <offer-block-tile>
+            <redemption-button
+               offer-id="12345"
+               redirect-url="https://vouchercloud.com/"
+            >
+               OFFER BLOCK
+            </redemption-button>
+         </offer-block-tile>
       </div>
    </body>
 </html>

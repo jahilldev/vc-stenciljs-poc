@@ -11,27 +11,14 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 export namespace Components {
   interface LocalSearch {
-    /**
-    * Map link text
-    */
     'linkText': string;
-    /**
-    * Map URL
-    */
     'mapUrl': string;
-    /**
-    * Main title text
-    */
     'titleText': string;
   }
+  interface OfferBlockTile {}
   interface RedemptionButton {
-    /**
-    * Modal url for redemption
-    */
     'modalUrl'?: string;
-    /**
-    * Url to use for redirect
-    */
+    'offerId': number;
     'redirectUrl'?: string;
   }
 }
@@ -45,6 +32,12 @@ declare global {
     new (): HTMLLocalSearchElement;
   };
 
+  interface HTMLOfferBlockTileElement extends Components.OfferBlockTile, HTMLStencilElement {}
+  var HTMLOfferBlockTileElement: {
+    prototype: HTMLOfferBlockTileElement;
+    new (): HTMLOfferBlockTileElement;
+  };
+
   interface HTMLRedemptionButtonElement extends Components.RedemptionButton, HTMLStencilElement {}
   var HTMLRedemptionButtonElement: {
     prototype: HTMLRedemptionButtonElement;
@@ -52,38 +45,28 @@ declare global {
   };
   interface HTMLElementTagNameMap {
     'local-search': HTMLLocalSearchElement;
+    'offer-block-tile': HTMLOfferBlockTileElement;
     'redemption-button': HTMLRedemptionButtonElement;
   }
 }
 
 declare namespace LocalJSX {
   interface LocalSearch {
-    /**
-    * Map link text
-    */
     'linkText'?: string;
-    /**
-    * Map URL
-    */
     'mapUrl'?: string;
-    /**
-    * Main title text
-    */
     'titleText'?: string;
   }
+  interface OfferBlockTile {}
   interface RedemptionButton {
-    /**
-    * Modal url for redemption
-    */
     'modalUrl'?: string;
-    /**
-    * Url to use for redirect
-    */
+    'offerId'?: number;
+    'onOnRedemption'?: (event: CustomEvent<any>) => void;
     'redirectUrl'?: string;
   }
 
   interface IntrinsicElements {
     'local-search': LocalSearch;
+    'offer-block-tile': OfferBlockTile;
     'redemption-button': RedemptionButton;
   }
 }
@@ -95,6 +78,7 @@ declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
       'local-search': LocalJSX.LocalSearch & JSXBase.HTMLAttributes<HTMLLocalSearchElement>;
+      'offer-block-tile': LocalJSX.OfferBlockTile & JSXBase.HTMLAttributes<HTMLOfferBlockTileElement>;
       'redemption-button': LocalJSX.RedemptionButton & JSXBase.HTMLAttributes<HTMLRedemptionButtonElement>;
     }
   }

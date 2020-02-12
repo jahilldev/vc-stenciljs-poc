@@ -13,25 +13,10 @@ import { Component, Prop, h, getAssetPath, State } from '@stencil/core';
    shadow: true,
 })
 export class LocalSearch {
-   /**
-    * Main title text
-    */
    @Prop() titleText: string;
-
-   /**
-    * Map link text
-    */
    @Prop() linkText: string;
-
-   /**
-    * Map URL
-    */
    @Prop() mapUrl: string;
-
-   /**
-    * Internal input state
-    */
-   @State() searchValue: string;
+   @State() searchValue: string = '';
 
    private onKeyUp = (ev: Event) => {
       const { value } = ev.target as HTMLInputElement;
@@ -54,7 +39,7 @@ export class LocalSearch {
                   <input
                      class="input"
                      type="text"
-                     value=""
+                     value={this.searchValue}
                      onKeyUp={this.onKeyUp}
                   />
                   <button class="button">Show Offers</button>

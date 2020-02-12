@@ -1,4 +1,4 @@
-import { Component, Prop, Host, h } from '@stencil/core';
+import { Component, Prop, Event, EventEmitter, Host, h } from '@stencil/core';
 
 /* -----------------------------------
  *
@@ -12,18 +12,18 @@ import { Component, Prop, Host, h } from '@stencil/core';
    shadow: true,
 })
 export class RedemptionButton {
-   /**
-    * Url to use for redirect
-    */
+   @Prop() offerId: number;
    @Prop() redirectUrl?: string;
-
-   /**
-    * Modal url for redemption
-    */
    @Prop() modalUrl?: string;
 
+   @Event({ eventName: 'onRedemption' })
+   onRedemption: EventEmitter;
+
    private onClick = () => {
-      console.log('OH HAI', this.redirectUrl);
+      const { offerId } = this;
+      // TRIGGER MODAL / REDIRECT
+
+      this.onRedemption.emit({ offerId });
    };
 
    render() {
