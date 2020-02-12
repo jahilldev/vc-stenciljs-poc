@@ -1,32 +1,25 @@
 import { newE2EPage } from '@stencil/core/testing';
 
 describe('my-component', () => {
-  it('renders', async () => {
-    const page = await newE2EPage();
+   it('renders', async () => {
+      const page = await newE2EPage();
 
-    await page.setContent('<my-component></my-component>');
-    const element = await page.find('my-component');
-    expect(element).toHaveClass('hydrated');
-  });
+      await page.setContent('<local-search></local-search>');
+      const element = await page.find('local-search');
 
-  it('renders changes to the name data', async () => {
-    const page = await newE2EPage();
+      expect(element).toHaveClass('hydrated');
+   });
 
-    await page.setContent('<my-component></my-component>');
-    const component = await page.find('my-component');
-    const element = await page.find('my-component >>> div');
-    expect(element.textContent).toEqual(`Hello, World! I'm `);
+   it('applies titleText property to DOM', async () => {
+      const testTitle = 'title';
+      const page = await newE2EPage();
 
-    component.setProperty('first', 'James');
-    await page.waitForChanges();
-    expect(element.textContent).toEqual(`Hello, World! I'm James`);
+      await page.setContent(
+         `<local-search title-text="${testTitle}"></local-search>`
+      );
 
-    component.setProperty('last', 'Quincy');
-    await page.waitForChanges();
-    expect(element.textContent).toEqual(`Hello, World! I'm James Quincy`);
+      const { textContent } = await page.find('local-search >>> .title');
 
-    component.setProperty('middle', 'Earl');
-    await page.waitForChanges();
-    expect(element.textContent).toEqual(`Hello, World! I'm James Earl Quincy`);
-  });
+      expect(textContent).toEqual(testTitle);
+   });
 });

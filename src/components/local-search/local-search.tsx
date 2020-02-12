@@ -43,8 +43,13 @@ export class LocalSearch {
             <div class="content">
                <h3 class="title">{this.titleText}</h3>
                <form class="form" method="POST" onSubmit={this.onSubmit}>
-                  <input class="input" type="text" onKeyUp={this.onKeyUp} />
-                  <button class="button ">Show Offers</button>
+                  <input
+                     class="input"
+                     type="text"
+                     value=""
+                     onKeyUp={this.onKeyUp}
+                  />
+                  <button class="button">Show Offers</button>
                </form>
                <a href={this.mapUrl} class="link" target="_blank">
                   {this.linkText}
