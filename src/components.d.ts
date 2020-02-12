@@ -24,7 +24,16 @@ export namespace Components {
     */
     'titleText': string;
   }
-  interface RedemptionButton {}
+  interface RedemptionButton {
+    /**
+    * Modal url for redemption
+    */
+    'modalUrl'?: string;
+    /**
+    * Url to use for redirect
+    */
+    'redirectUrl'?: string;
+  }
 }
 
 declare global {
@@ -62,7 +71,16 @@ declare namespace LocalJSX {
     */
     'titleText'?: string;
   }
-  interface RedemptionButton {}
+  interface RedemptionButton {
+    /**
+    * Modal url for redemption
+    */
+    'modalUrl'?: string;
+    /**
+    * Url to use for redirect
+    */
+    'redirectUrl'?: string;
+  }
 
   interface IntrinsicElements {
     'local-search': LocalSearch;

@@ -1,4 +1,4 @@
-import { Component, Host, h } from '@stencil/core';
+import { Component, Prop, Host, h } from '@stencil/core';
 
 /* -----------------------------------
  *
@@ -12,8 +12,18 @@ import { Component, Host, h } from '@stencil/core';
    shadow: true,
 })
 export class RedemptionButton {
-   private onClick = (ev: Event) => {
-      console.log('OH HAI', ev);
+   /**
+    * Url to use for redirect
+    */
+   @Prop() redirectUrl?: string;
+
+   /**
+    * Modal url for redemption
+    */
+   @Prop() modalUrl?: string;
+
+   private onClick = () => {
+      console.log('OH HAI', this.redirectUrl);
    };
 
    render() {
